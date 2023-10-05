@@ -18,16 +18,26 @@ export default class QueryService {
       safesearch: true,
     };
 
-    axios
+    return axios
       .get(`${BASE_URL}?page=${this.currentPage}&q=${this.searchQuery}`, {
         params,
       })
       .then(response => {
-        console.log(response.data);
-        this.currentPage += 1;
+        this.incrementPage();
+        return response.data.hits;
       })
       .catch(error => console.log(error));
   }
+
+  resetPageCounter() {
+    this.currentPage = 1;
+  }
+
+  incrementPage() {
+    this.currentPage += 1;
+  }
+
+  makeMarkup() {}
 
   set query(newQuery) {
     this.searchQuery = newQuery;
@@ -37,11 +47,11 @@ export default class QueryService {
     return this.searchQuery;
   }
 
-  get page() {
-    return this.currentPage;
-  }
-
   set page(newPage) {
     this.currentPage = newPage;
+  }
+
+  get page() {
+    return this.currentPage;
   }
 }
