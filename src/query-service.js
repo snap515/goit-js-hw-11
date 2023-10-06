@@ -39,19 +39,19 @@ export default class QueryService {
     this.currentPage += 1;
   }
 
-  set query(newQuery) {
-    this.searchQuery = newQuery;
-  }
+  // set query(newQuery) {
+  //   this.searchQuery = newQuery;
+  // }
 
-  get query() {
-    return this.searchQuery;
-  }
+  // get query() {
+  //   return this.searchQuery;
+  // }
 
-  set page(newPage) {
-    this.currentPage = newPage;
-  }
+  // set page(newPage) {
+  //   this.currentPage = newPage;
+  // }
 
-  get page() {
-    return this.currentPage;
-  }
+  // get page() {
+  //   return this.currentPage;
+  // }
 }
